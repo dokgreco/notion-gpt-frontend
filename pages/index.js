@@ -5,7 +5,7 @@ export default function Home() {
   const [risposta, setRisposta] = useState("");
 
   const chiedi = async () => {
-    const res = await fetch(`https://notion-gpt-backend-production.up.railway.app/chatbot?query=${encodeURIComponent(query)}`);
+    const res = await fetch(`${process.env.API_BASE_URL}/chatbot?query=${encodeURIComponent(query)}`);
     const data = await res.json();
     setRisposta(data.risposta);
   };
